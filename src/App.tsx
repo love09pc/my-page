@@ -388,21 +388,24 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {t.projectsList.map((project) => {
-              // 임시 문자열 처리 및 링크 유효성 검사
-              const hasValidLink =
-                project.link && project.link !== "a" && project.link !== "asd";
+              // 임시 값이면 기본적으로 현재 포트폴리오 사이트 주소를 가리키도록 설정
+              const fallbackUrl = window.location.href;
+              const githubUrl =
+                project.github && project.github !== "a"
+                  ? project.github
+                  : fallbackUrl;
+              const linkUrl =
+                project.link && project.link !== "a" && project.link !== "asd"
+                  ? project.link
+                  : fallbackUrl;
 
               return (
                 <div
                   key={project.id}
                   onClick={() => {
-                    if (hasValidLink) {
-                      window.open(project.link, "_blank", "noreferrer");
-                    }
+                    window.open(linkUrl, "_blank", "noreferrer");
                   }}
-                  className={`rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-[#333] shadow-sm overflow-hidden group hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col ${
-                    hasValidLink ? "cursor-pointer" : ""
-                  }`}
+                  className="rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-[#333] shadow-sm overflow-hidden group hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
                 >
                   <div className="h-48 w-full bg-gray-200 dark:bg-[#2a2a2a] overflow-hidden relative shrink-0">
                     {project.image ? (
@@ -427,28 +430,25 @@ function App() {
                       </h3>
 
                       <div className="flex gap-3 text-gray-500 dark:text-gray-400 shrink-0 ml-4">
-                        {project.github && project.github !== "a" && (
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="hover:text-black dark:hover:text-white transition-colors"
-                            onClick={(e) => e.stopPropagation()} // 카드 전체 클릭 이벤트와 겹치지 않도록 방지
-                          >
-                            <Github size={20} />
-                          </a>
-                        )}
-                        {hasValidLink && (
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="hover:text-black dark:hover:text-white transition-colors"
-                            onClick={(e) => e.stopPropagation()} // 카드 전체 클릭 이벤트와 겹치지 않도록 방지
-                          >
-                            <ExternalLink size={20} />
-                          </a>
-                        )}
+                        <a
+                          href={githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <Github size={20} />
+                        </a>
+
+                        <a
+                          href={linkUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <ExternalLink size={20} />
+                        </a>
                       </div>
                     </div>
 
