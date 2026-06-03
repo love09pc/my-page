@@ -30,14 +30,14 @@ function App() {
 
   const content = {
     ko: {
-      greeting: "결과를 추구하는 ",
+      greeting: "결과로 증명하는 ",
       role: "개발자 이현우",
       suffix: "입니다.",
       desc1: "Front-end Developer",
       desc2: "Audio Engineer & Composer",
       aboutTitle: "About Me",
       aboutDesc:
-        "안녕하세요. 사용자가 되어보는 개발자 이현우 입니다. 기술적으로도 협업적으로도 여러 분야에서 빛날 수 있는 저를 만들어가기 위해 스스로 돌아봅니다.",
+        "안녕하세요. 좋은 결과 과정, 좋은 결과로 프로젝트를 이끌어나가는 개발자 이현우입니다. 좋은 과정이라도 결과가 나오지 않는다면 만족하지 않습니다.",
       stackTitle: "Stack",
       stackDesc: "여기에 기술 스택 아이콘과 설명이 들어갈 예정입니다.",
       projectsTitle: "Projects",
