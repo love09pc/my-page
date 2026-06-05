@@ -101,7 +101,7 @@ function App() {
           id: 2,
           date: "2025.03 - 현재",
           title: "교내 동아리 ADA",
-          desc: "1학년부터 프로젝트 동아리 ADA에 가입하여 활동하고 있습니다.",
+          desc: "1학년부터 프로젝트 동아리 ADA 가입하여 활동하고 있습니다.",
         },
         {
           id: 3,
@@ -174,19 +174,19 @@ function App() {
       activitiesList: [
         {
           id: 1,
-          date: "Apr 2025 - Present",
+          date: "2025.04 - Present",
           title: "Freelance Projects (AVEX Co., Ltd.)",
           desc: "Actively working on contract-based development, maintaining professional communication with AVEX.",
         },
         {
           id: 2,
-          date: "Mar 2025 - Present",
+          date: "2025.03 - Present",
           title: "Campus Project Club ADA",
           desc: "Participating in practical web/app development and team projects within the school club ADA since freshman year.",
         },
         {
           id: 3,
-          date: "Dec 2024",
+          date: "2024.12",
           title: "ITQ Certification",
           desc: "Issued by Korea Productivity Center (KPC).",
         },
@@ -222,7 +222,7 @@ function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center"
+          className="text-center w-full max-w-5xl"
         >
           <div className="mb-10 flex justify-center">
             <img
@@ -232,17 +232,21 @@ function App() {
             />
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
-            {t.greeting}
-            <span className="text-blue-600 dark:text-white">{t.role}</span>
-            {t.suffix}
-          </h1>
+          <div className="min-h-[140px] md:min-h-[120px] flex items-center justify-center mb-8">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+              {t.greeting}
+              <span className="text-blue-600 dark:text-white">{t.role}</span>
+              {t.suffix}
+            </h1>
+          </div>
 
-          <p className="text-gray-500 dark:text-[#a3a3a3] text-3xl md:text-5xl max-w-4xl mx-auto mb-10 leading-snug font-bold">
-            {t.desc1}
-            <br />
-            {t.desc2}
-          </p>
+          <div className="min-h-[96px] flex justify-center items-center">
+            <p className="text-gray-500 dark:text-[#a3a3a3] text-3xl md:text-5xl mb-10 leading-snug font-bold">
+              {t.desc1}
+              <br />
+              {t.desc2}
+            </p>
+          </div>
         </motion.div>
 
         <motion.div
@@ -261,7 +265,7 @@ function App() {
         <h2 className="text-5xl font-extrabold mb-12 text-black dark:text-white">
           {t.aboutTitle}
         </h2>
-        <div className="text-2xl md:text-3xl text-gray-600 dark:text-[#a3a3a3] leading-loose font-medium">
+        <div className="text-2xl md:text-3xl text-gray-600 dark:text-[#a3a3a3] leading-loose font-medium md:min-h-[150px]">
           {t.aboutDesc}
         </div>
       </section>
@@ -280,8 +284,8 @@ function App() {
             {t.stackTitle}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-10 rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-[#333] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div className="h-full p-10 rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-[#333] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
               <h3 className="text-2xl md:text-3xl font-extrabold mb-8 text-gray-800 dark:text-gray-200 group-hover:text-blue-500 transition-colors">
                 Frontend
               </h3>
@@ -300,7 +304,7 @@ function App() {
               </ul>
             </div>
 
-            <div className="p-10 rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-[#333] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+            <div className="h-full p-10 rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-[#333] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
               <h3 className="text-2xl md:text-3xl font-extrabold mb-8 text-gray-800 dark:text-gray-200 group-hover:text-pink-500 transition-colors">
                 Backend
               </h3>
@@ -317,7 +321,7 @@ function App() {
               </ul>
             </div>
 
-            <div className="p-10 rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-[#333] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+            <div className="h-full p-10 rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-[#333] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
               <h3 className="text-2xl md:text-3xl font-extrabold mb-8 text-gray-800 dark:text-gray-200 group-hover:text-green-500 transition-colors">
                 Tools
               </h3>
@@ -363,9 +367,11 @@ function App() {
                     {activity.title}
                   </h3>
                 </div>
-                <p className="text-xl md:text-2xl text-gray-600 dark:text-[#a3a3a3] leading-relaxed font-medium">
-                  {activity.desc}
-                </p>
+                <div className="md:min-h-[80px]">
+                  <p className="text-xl md:text-2xl text-gray-600 dark:text-[#a3a3a3] leading-relaxed font-medium">
+                    {activity.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -386,9 +392,8 @@ function App() {
             {t.projectsTitle}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8">
             {t.projectsList.map((project) => {
-              // 임시 값이면 기본적으로 현재 포트폴리오 사이트 주소를 가리키도록 설정
               const fallbackUrl = window.location.href;
               const githubUrl =
                 project.github && project.github !== "a"
@@ -405,14 +410,14 @@ function App() {
                   onClick={() => {
                     window.open(linkUrl, "_blank", "noreferrer");
                   }}
-                  className="rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-[#333] shadow-sm overflow-hidden group hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
+                  className="rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-[#333] shadow-sm overflow-hidden group hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row cursor-pointer md:min-h-[320px]"
                 >
-                  <div className="h-48 w-full bg-gray-200 dark:bg-[#2a2a2a] overflow-hidden relative shrink-0">
+                  <div className="h-60 md:h-auto md:w-[40%] max-w-[400px] shrink-0 bg-[#f8f9fa] dark:bg-[#141414] overflow-hidden relative flex items-center justify-center">
                     {project.image ? (
                       <img
                         src={project.image}
                         alt={`${project.title} 썸네일`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                       />
                     ) : (
                       <span className="absolute inset-0 flex items-center justify-center text-gray-500 dark:text-gray-400 font-medium">
@@ -421,7 +426,7 @@ function App() {
                     )}
                   </div>
 
-                  <div className="p-8 flex flex-col flex-grow">
+                  <div className="p-8 flex flex-col justify-center flex-grow w-full">
                     <div className="flex justify-between items-start mb-4">
                       <h3
                         className={`text-2xl font-bold text-gray-800 dark:text-gray-200 transition-colors ${project.hoverColor}`}
@@ -452,11 +457,13 @@ function App() {
                       </div>
                     </div>
 
-                    <p className="text-gray-600 dark:text-[#a3a3a3] mb-8 leading-relaxed flex-grow">
-                      {project.desc}
-                    </p>
+                    <div className="md:min-h-[100px] mb-6 flex items-start">
+                      <p className="text-gray-600 dark:text-[#a3a3a3] leading-relaxed">
+                        {project.desc}
+                      </p>
+                    </div>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mt-auto">
                       {project.tech.map((techItem) => (
                         <span
                           key={techItem}
